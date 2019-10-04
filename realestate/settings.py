@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     #local
     'realtors.apps.RealtorsConfig',
     'users.apps.UsersConfig',
+   
+
 
     'contacts.apps.ContactsConfig',
 ]

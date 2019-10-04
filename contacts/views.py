@@ -14,7 +14,6 @@ def contact(request):
         owner_name = request.POST['owner_name']
         realtor_email = request.POST['realtor_email']
 
-        # Check if user had made inquiry alread
         if request.user.is_authenticated:
                 user_id = request.user.id
                 has_contacted = Contact.objects.all().filter(listing_name=listing_id, user_id=user_name)

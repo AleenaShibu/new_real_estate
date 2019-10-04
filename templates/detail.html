@@ -13,9 +13,18 @@
 	
 	<h2 class="text-primary"> {{ realtor.phone }} </h2>
 	<h3 class="text-warning"> {{ realtor.email }}</h3>
-	<h4 class="text-success"> {{ realtors.ratings }}</h4>
+	<div class="card" style="length: 100rem;">
+		<div class ="card-body">
+			<h4 class="text-success"> {{ realtor.description }}</h4>
+		</div>
+	</div>
+
+	
 	<h4 class="text-info"> {{ realtor.district }}</h4>
-	<p> {{ realtors.describtion }} </p>
+	<p> {{ realtor.describtion }} </p>
 </div>
+<a href ="{% url 'contact'  %}">Contact </a>
 
 </div>
+
+{% endblock body %}

@@ -3,6 +3,7 @@ from django.views.generic import ListView,DetailView
 from django.views.generic.edit import DeleteView,CreateView
 from django.urls import reverse_lazy
 from .models import Realtor
+from contacts.models import Contact
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin,PermissionRequiredMixin
 
 class PropertyListView(ListView):
