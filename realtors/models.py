@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 
 
 class Realtor(models.Model):
-	name = models.CharField(max_length=200)
+	owner_name = models.CharField(max_length=200)
 	photo = models.ImageField(upload_to='photos/%Y/%m/%d/')
 	description = models.TextField(blank=True)
 	phone = models.CharField(max_length=20)

@@ -18,7 +18,7 @@ class PropertyDetailView( LoginRequiredMixin,PermissionRequiredMixin,DetailView)
 class AddPropertyView(CreateView):
 	model = Realtor
 	template_name ='addproperty.html'
-	fields = ['name','description','email','photo','phone','district']
+	fields = ['owner_name','description','email','photo','phone','district']
 	
 	
 
