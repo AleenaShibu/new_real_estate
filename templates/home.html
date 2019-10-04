@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+ {% load static %}
+	
+
+	{% block title %}Welcome{% endblock title %}
+ 	{% block body %}
+    {% if user.is_authenticated %}
+  <h1 class="text-center"> Hi {{ user.username }}</h1>
+    <div class>
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+  </div>
+ <form action= "{% url 'search' %}"  method="get">
+ 
+  <input type ="text" name ="q">
+<input type ="submit" value ="search">
+</form>
+
+
+ 	<h2>Paintings List</h2>
+
+ 	{% for element in object_list %}
+  
+
+  <div class="card" style="width: 20rem;">
+    <div class ="card-body">
+       <img class=  "card-img" src="{{ painting.image.url}}" alt="{{ painting.name }}">
+  
+  <a href="{% url 'detail' element.id %}">
+    <img class= "rounded" src="{{ painting.image.url}}" >
+  
+ 	   <h3 class="text-bold" class= "display-1">{{ element.name }}</h3>
+ 	   <h4 class="text-success">{{ element.phone }}</h4>
+ 	   <h5 class="text-success">{{ element.email }}</h5>
+ 	   <h6 class="text-success">{{ element.describtion }}</h6>
+     </a>
+   </div>
+ </div>
+ 
+     
+    <img class= "rounded" src="{{ realtor.photo.url}}" alt="{{ realtor.name }}">
+  
+
+     {% endfor %}
+  {% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a> 
+  <a href="{% url 'signup' %}">Sign Up</a>
+{% endif %}
+
+
+{% endblock body %}
