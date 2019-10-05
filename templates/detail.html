@@ -14,17 +14,39 @@
 	<h2 class="text-primary"> {{ realtor.phone }} </h2>
 	<h3 class="text-warning"> {{ realtor.email }}</h3>
 	<div class="card" style="length: 100rem;">
-		<div class ="card-body">
-			<h4 class="text-success"> {{ realtor.description }}</h4>
+		
+			<div class="card text-white bg-info mb-3" >
+
+
+			<h4 class="text-dark"> {{ realtor.description }}</h4>
 		</div>
 	</div>
 
 	
-	<h4 class="text-info"> {{ realtor.district }}</h4>
+	<h4 class="text-dark"> {{ realtor.district }}</h4>
 	<p> {{ realtor.describtion }} </p>
 </div>
-<a href ="{% url 'contact'  %}">Contact </a>
+<a href ="{% url 'contact'  %}">Contact Realtor</a>
+<a href ="{% url 'edit' realtor.id %}">Edit Propety Details </a>
+<a href ="{% url 'delete' realtor.id %}">Delete Propety Details </a>
 
 </div>
+<div class="mt-5">
+	<h2>
+	Comments </h2>
+{% for comment in realtor.comments.all %}
+    <div class="comment">
+        
+        <strong>{{ comment.author }}</strong>
+        <p>{{ comment.text|linebreaks }}</p>
+    </div>
+</div>
+<div class ="card-body">
+
+<div class="card" style="length: 100rem;">
+	</div>
+</div>
+{% endfor %}
+
 
 {% endblock body %}

@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 
-from .models import Realtor
+from .models import Realtor,Comment
 
 class RealtorAdmin(admin.ModelAdmin):
   list_display = ('id', 'name', 'email', 'hire_date')
@@ -10,3 +10,5 @@ class RealtorAdmin(admin.ModelAdmin):
   list_per_page = 25
 
 admin.site.register(Realtor)
+admin.site.register(Comment)
+

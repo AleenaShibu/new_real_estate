@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Delete Property{% endblock title %}
+{% block body %}
+{% if request.user.is_authenticated %}
+<div class ="card-body">
+	<h1>Delete Review</h1>
+<form action ="" method="post"> 
+{% csrf_token %}
+<p class ="text_dark">Do you want to delete ?</p>
+
+<input class="btn btn-success" type="submit" value ="confirm">
+</form>
+<button type="button" class="btn btn-danger">Danger</button>
+{% else %}
+<div class="alert alert-warning" role="alert">You are not Logged In
+	</div>
+  
+<a href ="{% url 'signup' %}">Sign Up</a>
+{% endif %}
+
+</div>
+{% endblock body %}
