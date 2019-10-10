@@ -28,6 +28,20 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
+
+ACCOUNT_EMAIL_REQUIRED =True
+ACCOUNT_AUTHENTICATION_METHOD =("username_email")
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_SUBJECT_PREFIX = '[dev user skeleton]'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'aleenashibu94@gmail.com'
+
+EMAIL_HOST_PASSWORD = 9497504162
+EMAIL_USE_TLS = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -75,6 +89,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'realestate.urls'
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',)
 
 TEMPLATES = [
     {

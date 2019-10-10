@@ -11,11 +11,10 @@ class PropertyListView(ListView):
 	model = Realtor
 	template_name ='home.html'
 
-class PropertyDetailView( LoginRequiredMixin,PermissionRequiredMixin,DetailView):
+class PropertyDetailView( DetailView):
 	model = Realtor
 	template_name ='detail.html'
-	login_url = 'login'
-	permission_required = 'realtors.special_access' 
+	
 
 class AddPropertyView(CreateView):
 	model = Realtor
