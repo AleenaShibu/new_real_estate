@@ -1,7 +1,7 @@
 
 {% extends 'base.html' %}
+
 {% load static %}
-{% block title %} | Welcome {% endblock %}
 
 {% block body %}
   {% if user.is_authenticated %}
@@ -16,18 +16,19 @@
 </form>
   <h2>Property List</h2>
   {% for element in object_list %}
-   <div class="card md-2 mt-2">
-    <div clas="card-body">
+   <div class="card" style="width: 25rem;" "height: 30rem;">
+      <div clas="card-body">
        <a class = "card-link text-danger text-danger " 
    href="{% url 'detail' element.id %}">
 <div class="container m-3">
   <li class="lisit-inline-item">
-       <img src="{{ element.photo.url }}" class="img-fluid img-thumbnail"alt="{{ element.type }}">
+       <img src="{{ element.photo.url }}"  alt="image"  height="250" width="250">
      <h3 class="text-light">{{ element.owner_name}}</h3>
-     <h4 class="text-success">{{ element.district }}</h4>
+     <h4 class="text-success">{{ element.district }} :District</h4>
      <h5>{{ element.phone }}</h5>
-     <h6>{{ element.email }}</h6>
-       <h6 class="text-muted" > Added {{ element.created_at|timesince }} Ago</h6>
+     <h6>{{ element.price }} :Price</h6>
+       <h6 class="text-muted" > Added {{ element.created_date|timesince }} Ago</h6>
+
                     
    </li>
  </div>
@@ -38,8 +39,12 @@
      {% endfor %}
   {% else %}
   <p>You are not logged in</p>
-  <p><a href="{% url 'signup' %}">Sign Up</a></p>
+  <p><a href="{% url 'login' %}">Add Property</a></p>
+<p><a href="{% url 'signup' %}">Sign Up</a></p>
 <p><a href="{% url 'login' %}">Log In </a></p>
-{% endif %}
+ {% endif %}
+
+   
+     <a href="{% url 'addproperty' %}">Add Property</a>
 
 {% endblock body %}

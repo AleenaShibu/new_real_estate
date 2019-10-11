@@ -29,9 +29,6 @@ ALLOWED_HOSTS = ['*']
 
 
 
-ACCOUNT_EMAIL_REQUIRED =True
-ACCOUNT_USERNAME_REQUIRED = False
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -54,7 +51,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
    # ... include the providers you want to enable:
    
-    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.github',
 
     #local
     'realtors.apps.RealtorsConfig',
