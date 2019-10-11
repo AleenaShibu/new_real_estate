@@ -1,13 +1,26 @@
-from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.contrib import admin
+from django.contrib.auth import get_user_model
+from django.contrib.auth.admin import UserAdmin
 
-from django.urls import reverse_lazy
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, CustomUserChangeForm
+from .models import CustomUser
+class CustomUserAdmin(UserAdmin):
+# Inherited from UserAdmin to customize the default admin panel display
+	model = CustomUser
+	add_form = CustomUserCreationForm
+	form = CustomUserChangeForm
+	list_display = ['email','username']
+	fieldsets = UserAdmin.fieldsets + (
+										 (None,
+										 {'fields':('category','mob_num',)}
+										 ),
+									   )
+	add_fieldsets = (
 
-class SignUpView(CreateView):
-	form_class = CustomUserCreationForm
-	success_url = reverse_lazy('login')
-	template_name = 'signup.html'
+		(None,{
+			'classes':('wide'),
+			'fields':('email','username','password1','password2','is_staff','is_active')
+			}),
+					)
 
-
-
+admin.site.register(CustomUser, CustomUserAdmin)

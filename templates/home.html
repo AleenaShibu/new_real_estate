@@ -22,7 +22,7 @@
    href="{% url 'detail' element.id %}">
 <div class="container m-3">
   <li class="lisit-inline-item">
-       <img src="{{ element.photo.url }}" alt="{{ element.type }}">
+       <img src="{{ element.photo.url }}" class="img-fluid img-thumbnail"alt="{{ element.type }}">
      <h3 class="text-light">{{ element.owner_name}}</h3>
      <h4 class="text-success">{{ element.district }}</h4>
      <h5>{{ element.phone }}</h5>
@@ -38,8 +38,8 @@
      {% endfor %}
   {% else %}
   <p>You are not logged in</p>
-  <a href="{% url 'login' %}">Log In</a> 
-  <a href="{% url 'signup' %}">Sign Up</a>
+  <p><a href="{% url 'signup' %}">Sign Up</a></p>
+<p><a href="{% url 'login' %}">Log In </a></p>
 {% endif %}
 
 {% endblock body %}
