@@ -3,6 +3,7 @@ from django.views.generic import ListView,DetailView
 from django.views.generic.edit import DeleteView,CreateView,UpdateView
 from django.urls import reverse_lazy
 from .models import Realtor
+from .models import Comment
 from contacts.models import Contact
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin,PermissionRequiredMixin
 from django.conf import settings
@@ -22,7 +23,7 @@ class AddPropertyView(CreateView):
 	fields = ['owner_name','description','email','photo','phone','district','price',]
 
 	def form_valid(self, form):
-		form.instance.owner_name = self.request.user
+		form.instance.owner = self.request.user
 		return super().form_valid(form)
 						
 	
@@ -38,7 +39,7 @@ class DeletePropertyView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
 		return obj.owner_name == self.request.user
 
     
-class EditPropertyView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
+class EditPropertyView(UpdateView):
 	model = Realtor
 	template_name = 'edit.html'
 	fields = ['owner_name','description','email','photo','phone','district','price',]
@@ -54,7 +55,17 @@ class SearchPropertyView(ListView):
 	model = Realtor
 	template_name = 'search.html'
 
-	def ger_Queryset(self):
+	def get_Queryset(self):
 		query =self.request.GET['q']
 		return Realtor.objects.filter(name__icontains=query)
-	
+class AddComment(LoginRequiredMixin,CreateView):
+	model= Comment
+	template_name='addcomment.html'
+	fields = ('user','text')
+	 
+
+
+	def form_valid(self,form):
+		property_object = Realtor.objects.get(id=self.kwargs['pk'])
+		form.instance.post = property_object
+		return super().form_valid(form)

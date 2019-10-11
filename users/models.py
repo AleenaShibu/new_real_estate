@@ -3,12 +3,14 @@ from django.contrib.auth.models import AbstractUser
 
 class CustomUser(AbstractUser):
 	TYPE = [
-			('seller'),
-			('buyer'),
+			('Seller','seller'),
+			('Buyer','buyer'),
 			
 
 		]
-	age = models.PositiveIntegerField(null=True, blank=True)
+	
+	category= models.CharField(max_length=40,choices=TYPE)
+	mob_num=models.CharField(max_length=10)
 
 
 

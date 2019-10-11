@@ -41,19 +41,30 @@ class Realtor(models.Model):
   email = models.CharField(max_length=50)
   district = models.TextField(blank =True)
   price = models.PositiveIntegerField(default=100000)
-  created_date=models.DateTimeField(auto_now_add=True,editable=False,blank=False,null=False)
+  created_date = models.DateTimeField(auto_now_add=True,editable=False,blank=False,null=False)
+  owner = models.ForeignKey(get_user_model(),on_delete=models.CASCADE)
 	
   def __str__(self):
-    return self.owner_name
+    return self.owner
 	
   def get_absolute_url(self):
-    return reverse('subject', args=[str(self.id)])	
+    return reverse('detail', args=[str(self.id)])	
 
 # for comments
 class Comment(models.Model):
-  comment= models.ForeignKey('realtors.Realtor', on_delete=models.CASCADE, related_name='comments')
+  post = models.ForeignKey('realtors.Realtor', on_delete=models.CASCADE, related_name='comments')
   user = models.CharField(max_length=200)
   text = models.TextField()
+  created_date = models.DateTimeField(auto_now_add=True,editable=False,blank=False,null=False)
+  approved_comment = models.BooleanField(default=False)
+
+  def approve(self):
+    self.approved_comment = True
+    self.save()
+
+  def __str__(self):
+    return self.text
+
     
  
  
