@@ -2,6 +2,7 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% load socialaccount %}
 
 {% block body %}
   {% if user.is_authenticated %}
@@ -40,12 +41,14 @@
   {% else %}
   <p>You are not logged in</p>
   <p><a href="{% url 'login' %}">Add Property</a></p>
-<p><a href="{% url 'signup' %}">Sign Up</a></p>
+
+<a href="{% provider_login_url 'github' %}">Sign Up</a>
+
 <p><a href="{% url 'login' %}">Log In </a></p>
  {% endif %}
 
    
      <a href="{% url 'addproperty' %}">Add Property</a>
-      
+
 
 {% endblock body %}
