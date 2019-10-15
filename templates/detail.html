@@ -4,29 +4,34 @@
 {% endblock title %}
 
 	{% block body %}
-		<div class="card" style="width: 50rem;">
-		<div class ="card-body">
-			
+	<div class='container'>	
 
 	<h1 class ="text-bold"> {{ realtor.owner_name}} </h1>
-	<img class= "rounded" src="{{ realtor.photo.url}}" alt=" ">
-	
-	<h2 class="text-primary"> contact :{{ realtor.phone }} </h2>
-	<h3 class="text-warning">Email to: {{ realtor.email }}</h3>
-	<div class="card" style="length: 100rem;">
-		
-			<div class="card text-white bg-info mb-3" >
-
-
-			<h4 class="text-white"> {{ realtor.description }}</h4>
-		</div>
-	</div>
+	<img class= "rounded float-left md-5" src="{{ realtor.photo.url}}" alt=" ">
 
 	
-	<h4 class="text-dark"> {{ realtor.district }}</h4>
-	<p> {{ realtor.describtion }} </p>
+	<div >
+	<h2 class= " card-body bg-#a1887f brown lighten-2 text-dark mt-5" style="width: 40rem;"> contact :{{ realtor.phone }} </h2>
+	<h3 class= " card-body bg-#f4ff81 lime accent-1 text-dark mt-4" style="width: 40rem;">Email to: {{ realtor.email }}</h3>
 </div>
-<h5 class="text-muted"> price of Property :{{ realtor.price }}</h5>
+	<div class="card bg-light" style="length: 100rem;">
+		
+			
+
+
+			<h4 class="text-success"> {{ realtor.description }}</h4>
+		
+	
+
+</div>
+
+
+
+<h4 class= " card-body bg-#00e676 green accent-3 text-light mt-4" style="width: 20rem;"> {{ realtor.district }}</h4>
+
+	
+<h5 class=" card-body bg-#00e676 green accent-3 text-light mt-4" style="width: 20rem;">
+	 Price of Property :{{ realtor.price }}</h5>
 {% if request.user.username == realtors.owner.username %}
 
 
@@ -36,29 +41,30 @@
 {% if request.user.is_authenticated %}
 
 
-<h5 > Contact {{ realtor.owner.username }}: {{ realtor.phone }} </a>
-
 <div class="mt-5">
 	
-<a href ="{% url 'edit' realtor.id %}">Edit Propety  </a>
-<a href ="{% url 'delete' realtor.id %}">Delete Propety  </a>
+	<a class="btn btn-primary" href = "{% url 'edit' realtor.id %}"role="button">Edit Propety  </a>
+
+	<a class="btn btn-danger" href ="{% url 'delete' realtor.id %}"role="button">Delete Propety   </a>
+</div>
 <h2>
 	Comments </h2>
-<a href ="{% url 'comment' realtor.id %}">Add Comment </a>
+	<a class="btn btn-secondary" href ="{% url 'comment' realtor.id %}"role="button">Add Comment </a>
+
 
 {% for comment in realtor.comments.all %}
     <div class="d-flex flex-column">
-    <div class="comment card mt-3 ml-4" style="width:500px;">
-       <div class="card-body"> 
-       	<div class="card bg-success">
-        <strong>{{ comment.user }}</strong>
-        <p><p style="color:red">{{ comment.text }}</p>
+  
+       <div><h5 class="card-body bg-#fbe9e7 deep-orange lighten-5" style ="width:500px;"> 
+       
+      
+        <p style="color:red">{{ comment.text }}</p>
         <div class="date">{{ comment.created_date }}</div>
     </div>
-    </div>
+ 
 </div>
 </div>
-</div>
+
 {% endfor %}
 {% endif %}
 
