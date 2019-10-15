@@ -1,0 +1,13 @@
+
+{% extends 'base.html' %}
+{% block title %} Search {% endblock title %}
+{% block body %}
+ <h1>Property List</h1>
+ 	{% for element in object_list %}
+ 	
+	<h2> {{ realtor.name}}</h2>
+    <h4>{{ element.district }}</h4>
+    <h5>{{ element.phone }}</h5>
+    <h6>{{ element.price }}</h6>
+     {% endfor %}
+     {% endblock body %}

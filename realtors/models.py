@@ -53,8 +53,7 @@ class Realtor(models.Model):
 # for comments
 class Comment(models.Model):
   post = models.ForeignKey('realtors.Realtor', on_delete=models.CASCADE, related_name='comments')
-  user = models.CharField(max_length=200)
-  text = models.TextField()
+  comment = models.TextField()
   created_date = models.DateTimeField(auto_now_add=True,editable=False,blank=False,null=False)
   approved_comment = models.BooleanField(default=False)
 
