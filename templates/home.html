@@ -24,7 +24,7 @@
 <div class="container m-3">
   <li class="lisit-inline-item">
        <img src="{{ element.photo.url }}"  alt="image"  height="250" width="250">
-     <h3 class="text-light">{{ element.owner_name}}</h3>
+     <h3 class="text-success">{{ element.owner_name}}</h3>
      <h4 class="text-success">{{ element.district }} :District</h4>
      <h5>{{ element.phone }}</h5>
      <h6>{{ element.price }} :Price</h6>
@@ -40,15 +40,14 @@
      {% endfor %}
   {% else %}
   <p>You are not logged in</p>
-  <p><a href="{% url 'login' %}">Add Property</a></p>
 
-<a href="{% provider_login_url 'github' %}">Sign Up</a>
+
+ <p> <a href="{% provider_login_url 'github' %}">Sign Up</a></p>
 
 <p><a href="{% url 'login' %}">Log In </a></p>
  {% endif %}
 
-   
-     <a href="{% url 'addproperty' %}">Add Property</a>
+
 
 
 {% endblock body %}
