@@ -8,25 +8,28 @@
 
 {% block body %}
   {% if user.is_authenticated %}
-  <h1 class="text-center">  {{ user.username }}</h1>
+  <h1 class="text-center"> Welcome , {{ user.username }}</h1>
     <div class>
-  <p><a href="{% url 'logout' %}">Log Out</a></p>
+
   </div>
+<div style="width: 16rem;">
  <form action= "{% url 'search' %}"  method="get">
  
   <input type ="text" name ="q">
 <input type ="submit" value ="search">
 </form>
+</div>
  <a class = "btn button red lighten-3 text-dark" href="{% url 'addproperty'  %}"> Add Property </a>
   <h2>Property List</h2>
   {% for element in object_list %}
-   <div class="card-body" style="width: 30rem;" "height: 30rem;">
+    <div class="card-body" >
+   <div class="card-body" style="width: 30rem;" "height: 40rem;">
      
        <a class = "card-link text-danger text-danger " 
    href="{% url 'detail' element.id %}">
 <div class="container m-3">
   <li class="lisit-inline-item">
-       <img src="{{ element.photo.url }}"  alt="image"  height="250" width="250">
+       <img src="{{ element.photo.url }}"  alt="image"  height="240" width="250">
      <h3 class="text-success">{{ element.owner_name}}</h3>
      <h4 class="text-success">{{ element.details }} :District</h4>
      <h5>{{ element.phone }}</h5>
@@ -41,13 +44,16 @@
 
 
      {% endfor %}
+  
+ </div>
   {% else %}
   <p>You are not logged in</p>
 
 
- <p> <a href="{% provider_login_url 'github' %}">Sign Up</a></p>
+ <p> <a href="{% provider_login_url 'github' %}">Log In With Github</a></p>
 
-<p><a href="{% url 'login' %}">Log In </a></p>
+
+<p><a href="{% url 'signup' %}">Sign up </a></p>
  {% endif %}
 
 

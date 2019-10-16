@@ -55,9 +55,9 @@ class SearchPropertyView(ListView):
 	model = Realtor
 	template_name = 'search.html'
 
-	def get_Queryset(self):
+	def get_queryset(self):
 		query =self.request.GET['q']
-		return Realtor.objects.filter(owner_name__icontains=query)
+		return Realtor.objects.filter(details__icontains=query)
 class AddComment(LoginRequiredMixin,CreateView):
 	model= Comment
 	template_name='addcomment.html'

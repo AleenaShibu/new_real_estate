@@ -12,25 +12,25 @@
 	
 	<div >
 	<h2 class= " card-body bg-#a1887f brown lighten-2 text-dark mt-5" style="width: 40rem;"> contact :{{ realtor.phone }} </h2>
-	<h3 class= " card-body bg-#f4ff81 lime accent-1 text-dark mt-4" style="width: 40rem;">Email to: {{ realtor.email }}</h3>
+	<h3 class= " card-body bg-#ede7f6 deep-purple lighten-5" style="width: 40rem;">Email to: {{ realtor.email }}</h3>
 </div>
-	<div class="card bg-light" style="length: 100rem;">
+	
 		
 			
 
 
-			<h4 class="text-success" small> {{ realtor.description }}</h4>
+			<div class="text-#f5f5f5 grey lighten-4" > {{ realtor.description }}</div>>
 		
 	
 
-</div>
 
 
 
-<h4 class= " card-body bg-#e0f2f1 teal lighten-5mt-4" style="width: 20rem;"> {{ realtor.details }}</h4>
+
+<h4 class= " card-body bg-#fafafa grey lighten-5mt-4" style="width: 20rem;"> {{ realtor.details }}</h4>
 
 	
-<h5 class=" card-body bg-#fff8e1 amber lighten-5mt-4" style="width: 20rem;">
+<h5 class=" card-body bg-#eceff1 blue-grey lighten-5mt-4" style="width: 20rem;">
 	 Price of Property :{{ realtor.price }}</h5>
 {% if request.user.username == realtors.owner.username %}
 
@@ -58,7 +58,8 @@
        <div><h5 class="card-body bg-#fbe9e7 deep-orange lighten-5" style ="width:500px;"> 
        
       
-        <p style="color:red">{{ comment.text }}</p>
+    
+          <div class="comment">{{ comment.comment }}</div>
         <div class="date">{{ comment.created_date }}</div>
     </div>
  
