@@ -20,7 +20,7 @@ class PropertyDetailView( DetailView):
 class AddPropertyView(CreateView):
 	model = Realtor
 	template_name ='addproperty.html'
-	fields = ['owner_name','description','email','photo','phone','district','price',]
+	fields = ['owner_name','description','email','photo','phone','details','price',]
 
 	def form_valid(self, form):
 		form.instance.owner = self.request.user
@@ -42,7 +42,7 @@ class DeletePropertyView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
 class EditPropertyView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
 	model = Realtor
 	template_name = 'edit.html'
-	fields = ['owner_name','description','email','photo','phone','district','price',]
+	fields = ['owner_name','description','email','photo','phone','details','price',]
 
 
 	def test_func(self):

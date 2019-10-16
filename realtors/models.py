@@ -39,7 +39,7 @@ class Realtor(models.Model):
   description = models.TextField(blank=True)
   phone = models.CharField(max_length=20)
   email = models.CharField(max_length=50)
-  district = models.TextField(blank =True)
+  details = models.TextField(blank =True)
   price = models.PositiveIntegerField(default=100000)
   created_date = models.DateTimeField(auto_now_add=True,editable=False,blank=False,null=False)
   owner = models.ForeignKey(get_user_model(),on_delete=models.CASCADE)
