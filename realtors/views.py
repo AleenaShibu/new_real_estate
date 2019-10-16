@@ -39,7 +39,7 @@ class DeletePropertyView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
 		return obj.owner_name == self.request.user
 
     
-class EditPropertyView(UpdateView):
+class EditPropertyView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
 	model = Realtor
 	template_name = 'edit.html'
 	fields = ['owner_name','description','email','photo','phone','district','price',]
