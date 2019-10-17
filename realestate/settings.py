@@ -42,11 +42,15 @@ INSTALLED_APPS = [
 
 
       #3rd party apps
-      'crispy_forms',
+    'crispy_forms',
+    'whitenoise.runserver_nostatic',
+
 
     # allauth app
 
     'allauth',
+
+
     'allauth.account',
     'allauth.socialaccount',
    # ... include the providers you want to enable:
@@ -71,6 +75,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'realestate.urls'
@@ -164,6 +169,8 @@ EMAIL_HOST_USER = 'apikey'
 EMAIL_HOST_PASSWORD = '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'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
