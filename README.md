@@ -37,4 +37,4 @@ Inline-style:
 Reference-style: 
 ![alt text][logo]
 
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Screenshot from 2019-10-17 08-40-31.png"
+[logo]: https://github.com/adam-p/markdown-/"Screenshot from 2019-10-17 08-40-31.png"
