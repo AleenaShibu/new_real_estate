@@ -29,7 +29,7 @@ Web App Features
 Screenshots
 
     HOME
-    Here's our logo (hover to see the title text):
+    Here's our home page
 
 Inline-style: 
 ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
@@ -37,4 +37,4 @@ Inline-style:
 Reference-style: 
 ![alt text][logo]
 
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Screenshot from 2019-10-17 08-40-31.png"
