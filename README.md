@@ -1,17 +1,14 @@
 Real Estate Django website
+ 
+   Real Estate Website is a python-Django-HTML -CSS project with social account for login .For this project created two apps one users app and realtors app. Realtors app contains the models  and  other required files .Implemented comment system  so the Log In users can comment in comment box.For handling media in django installed pillow so we can add images . For forms  installed Django-crispy-forms that helps to manage Django forms. It allows adjusting forms' properties (such as method, send button or CSS classes) on the backend without having to re-write them in the template.For social .Installed Django_all-auth for social account login In this project our provider is Github we can login with GITHUB
+   
+   
+ 
 
-If you are new to Django, checkout the Django 2.x Cheat Sheet
-
-If you want to deploy this Web App In Ubuntu 18.04 Server, Please Follow this Guide
-How to run this project (Ubuntu 18.04)
-
-    Clone the project and it contains the fields for the project
 
 git clone https://github.com/AleenaShibu/new_real_estate.git
-    Make sure you are in Real-Estate-Django- folder
-    
-    Real Estate Website is a python Django project .Created two apps one users app and realtors app. Realtors app contains the models and it contains the fields for the project
-    
+   
+   
 
   
   
