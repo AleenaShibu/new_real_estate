@@ -10,7 +10,7 @@ class CustomUser(AbstractUser):
 		]
 	
 	category= models.CharField(max_length=40,choices=TYPE)
-	mob_num=models.CharField(max_length=10)
+	mobile_number=models.CharField(max_length=10,blank=True)
 
 
 

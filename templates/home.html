@@ -19,7 +19,10 @@
 <input type ="submit" value ="search">
 </form>
 </div>
+{% if request.user.category == 'Seller' %}
+
  <a class = "btn button red lighten-3 text-dark" href="{% url 'addproperty'  %}"> Add Property </a>
+ {% endif %}
   <h2>Property List</h2>
   {% for element in object_list %}
     <div class="card-body" >
